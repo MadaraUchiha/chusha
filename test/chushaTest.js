@@ -1,6 +1,7 @@
 import should from 'should';
 import {Chusha} from '../src/chusha';
 import {Level0, Level1_1, Level1_2, Level2} from './fixtures/dependencies';
+import {InjectableParam, ExtraParams} from './fixtures/extraParams';
 
 describe('Chusha Dependency Injector', () => {
     it('should resolve dependencies recursively', () => {
@@ -38,24 +39,10 @@ describe('Chusha Dependency Injector', () => {
     });
 
     it('should pass params on to the constructor', () => {
-        function OtherCtor(foo) {
-            this.foo = foo;
-        }
+        let other = Chusha.get(InjectableParam, 1);
+        Chusha.share(other);
 
-        function LoggingCtor(other, a, b) {
-            this.foo = other.foo;
-            this.a = a;
-            this.b = b;
-        }
-
-        LoggingCtor.inject = function () {
-            return [OtherCtor];
-        }
-
-        var other = new OtherCtor(1);
-        Chusha.share(other, "OtherCtor");
-
-        var logger = Chusha.get(LoggingCtor, 2, 3); 
+        let logger = Chusha.get(ExtraParams, 2, 3);
 
         (logger.foo).should.equal(1);
         (logger.a).should.equal(2);
