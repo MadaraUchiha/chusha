@@ -42,3 +42,4 @@ export class Chusha {
 if (typeof(window) !== 'undefined') {
     window.Chusha = Chusha;
 }
+

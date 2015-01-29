@@ -79,3 +79,4 @@ Remove the object under the hash specified in the first argument from the pool.
 
     Chusha.share(new MyObject());
     Chusha.unshare('MyObject'); // Cancel the above statement.
+

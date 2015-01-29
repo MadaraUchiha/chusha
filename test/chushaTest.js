@@ -62,3 +62,4 @@ describe('Chusha Dependency Injector', () => {
         (logger.b).should.equal(3);
     });
 });
+
