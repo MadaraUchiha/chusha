@@ -11,7 +11,7 @@
     }
   ],
   "scripts": {
-    "prepublish": "node_modules/.bin/./gulp dist"
+    "prepublish": "gulp dist"
   },
   "main": "dist/chusha.js",
   "devDependencies": {
