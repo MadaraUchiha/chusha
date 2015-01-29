@@ -2,13 +2,29 @@
   "name": "chusha",
   "version": "0.1.0",
   "repository": "git@github.com:MadaraUchiha/chusha.git",
+  "description": "A tiny dependency injection container for JavaScript",
+  "author": "Madara Uchiha <me@madara.ninja>",
+  "contributors": [
+    {
+      "name": "Sean Sube (ssube)",
+      "email": "seansube@gmail.com"
+    }
+  ],
+  "scripts": {
+    "install": "node_modules/.bin/./gulp"
+  },
   "dependencies": {
     "6to5": "^3.0.15"
   },
+  "main": "dist/chusha.js",
   "devDependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.10",
+    "gulp-6to5": "^3.0.0",
     "gulp-jshint": "^1.9.0",
     "gulp-mocha": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
     "jshint-stylish": "^1.0.0",
     "mocha": "^2.1.0",
     "should": "^4.6.2"
