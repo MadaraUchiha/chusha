@@ -17,7 +17,7 @@ export class Chusha {
         let dependencyConstructors = Constructor.inject ? (Constructor.inject() || []) : [];
         let dependencies = dependencyConstructors.map(el => Chusha.get(el));
         let obj = Object.create(Constructor.prototype);
-	let params = dependencies.concat(args);
+        let params = dependencies.concat(args);
         Constructor.apply(obj, params);
 
         return obj;
