@@ -11,9 +11,10 @@
     }
   ],
   "scripts": {
-    "install": "node_modules/.bin/./gulp dist"
+    "prepublish": "node_modules/.bin/./gulp dist"
   },
-  "dependencies": {
+  "main": "dist/chusha.js",
+  "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-6to5": "^3.0.0",
     "gulp-jshint": "^1.9.0",
@@ -21,10 +22,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.1.0",
     "jshint-stylish": "^1.0.0",
-    "del": "^1.1.1"
-  },
-  "main": "dist/chusha.js",
-  "devDependencies": {
+    "del": "^1.1.1",
     "6to5": "^3.0.15",
     "mocha": "^2.1.0",
     "should": "^4.6.2"
