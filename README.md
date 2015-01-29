@@ -17,35 +17,41 @@ Depends on your current moduling system, Chusha offers multiple distribution fil
 
 To define dependencies for an object, implement a static `inject()` method on the object, which return *an array of constructors*
 
-    var HttpClient = require('./lib/HttpClient');
+```js
+var HttpClient = require('./lib/HttpClient');
 
-    function MyObject(http) {
-        this.http = http;
-    }
-    MyObject.inject = function() { return [HttpClient]; }
+function MyObject(http) {
+    this.http = http;
+}
+MyObject.inject = function() { return [HttpClient]; }
 
-    module.exports = MyObject;
+module.exports = MyObject;
+```
 
 Then, to grab a new object:
 
-    var MyObject = require('./MyObject');
-    var Chusha = require('chusha');
+```js
+var MyObject = require('./MyObject');
+var Chusha = require('chusha');
 
-    var obj = Chusha.get(MyObject);
-    // obj now contains an instantiated MyObject instance with the HttpClient injected.
+var obj = Chusha.get(MyObject);
+// obj now contains an instantiated MyObject instance with the HttpClient injected.
+```
 
 To pass additional parameters into a constructor:
 
-    var HttpClient = require('./lib/HttpClient');
+```js
+var HttpClient = require('./lib/HttpClient');
 
-    function MultiObject(http, server) {
-        this.http = http;
-        this.server = server;
-    }
-    MultiObject.inject = function() { return [HttpClient]; }
+function MultiObject(http, server) {
+    this.http = http;
+    this.server = server;
+}
+MultiObject.inject = function() { return [HttpClient]; }
 
-    var obj = Chusha.get(MultiObject, "server-url");
-    // obj now contains an instantiated MultiObject instance with the HttpClient and server URL injected.
+var obj = Chusha.get(MultiObject, "server-url");
+// obj now contains an instantiated MultiObject instance with the HttpClient and server URL injected.
+```
 
 ## Dependency sharing
 
@@ -53,21 +59,25 @@ Sometimes, you'd want to share the same instance throughout all objects that nee
 
 You can use the `Chusha.share()` and `Chusha.unshare()` methods to add objects to a pool of shared objects.
 
-        var MyObject = require('./MyObject');
-        var Chusha = require('chusha');
+```js
+var MyObject = require('./MyObject');
+var Chusha = require('chusha');
 
-        Chusha.share({random: 'object'}, 'http'); // Share an object under the name 'http'.
+Chusha.share({random: 'object'}, 'http'); // Share an object under the name 'http'.
 
-        var obj = Chusha.get(MyObject);
-        // obj now contains an instantiated MyObject instance with the HttpClient injected.
+var obj = Chusha.get(MyObject);
+// obj now contains an instantiated MyObject instance with the HttpClient injected.
+```
 
 ### `Chusha.share(obj[, hash])`
 Store object in the pool under the hash specified in the second argument.
 
 If a second argument is not specified, Chusha will use the object's constructor name.
 
-    Chusha.share(new MyObject());
-    // same as Chusha.share(new MyObject(), 'MyObject');
+````js
+Chusha.share(new MyObject());
+// same as Chusha.share(new MyObject(), 'MyObject');
+```
 
 #### Limitations
  - You cannot share plain objects, functions or primitives.
@@ -77,6 +87,7 @@ If a second argument is not specified, Chusha will use the object's constructor 
 ### `Chusha.unshare(hash)`
 Remove the object under the hash specified in the first argument from the pool.
 
-    Chusha.share(new MyObject());
-    Chusha.unshare('MyObject'); // Cancel the above statement.
-
+```js
+Chusha.share(new MyObject());
+Chusha.unshare('MyObject'); // Cancel the above statement.
+```
