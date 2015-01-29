@@ -36,4 +36,30 @@ describe('Chusha Dependency Injector', () => {
         (() => { Chusha.share(['array']); }).should.throw(err);
         (() => { Chusha.share({'object': 'object'}); }).should.throw(err);
     });
+
+    it('should pass params on to the constructor', () => {
+        function OtherCtor(foo) {
+            this.foo = foo;
+        }
+
+        function LoggingCtor(other, a, b) {
+            this.foo = other.foo;
+            this.a = a;
+            this.b = b;
+        }
+
+        LoggingCtor.inject = function () {
+            return [OtherCtor];
+        }
+
+        var other = new OtherCtor(1);
+        Chusha.share(other, "OtherCtor");
+
+        var logger = Chusha.get(LoggingCtor, 2, 3); 
+
+        (logger.foo).should.equal(1);
+        (logger.a).should.equal(2);
+        (logger.b).should.equal(3);
+    });
 });
+

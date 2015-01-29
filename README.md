@@ -34,6 +34,19 @@ Then, to grab a new object:
     var obj = Chusha.get(MyObject);
     // obj now contains an instantiated MyObject instance with the HttpClient injected.
 
+To pass additional parameters into a constructor:
+
+    var HttpClient = require('./lib/HttpClient');
+
+    function MultiObject(http, server) {
+        this.http = http;
+        this.server = server;
+    }
+    MultiObject.inject = function() { return [HttpClient]; }
+
+    var obj = Chusha.get(MultiObject, "server-url");
+    // obj now contains an instantiated MultiObject instance with the HttpClient and server URL injected.
+
 ## Dependency sharing
 
 Sometimes, you'd want to share the same instance throughout all objects that need it (Database connection handlers, HTTP clients, etc).
@@ -66,3 +79,4 @@ Remove the object under the hash specified in the first argument from the pool.
 
     Chusha.share(new MyObject());
     Chusha.unshare('MyObject'); // Cancel the above statement.
+
