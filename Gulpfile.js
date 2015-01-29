@@ -14,9 +14,9 @@ gulp.task('lint', function() {
 
 gulp.task('test', function() {
     require('6to5/register');
-    gulp.src(['test/**/*.js'])
+    gulp.src(['test/**/*Test.js'])
         .pipe(mocha({
-            reporter: 'nyan'
+            reporter: 'spec'
         }));
 });
 

@@ -23,21 +23,21 @@ export class Chusha {
     }
 
     static share(obj, hash = obj.constructor.name) {
-        let illegalConstructors = ['Number', 'Boolean', 'String', 'Array', 'Function'];
+        let illegalConstructors = ['Number', 'Boolean', 'String', 'Array', 'Function', 'Object'];
         if (sharePool[hash]) {
-            throw new Error('Cannot share object because object named ' + hash + ' already exists. Please use Chusha.prototype.unshare to drop the current one first.');
+            throw new Error(`Cannot share object because object named ${hash} already exists. Please use Chusha.prototype.unshare to drop the current one first.`);
         }
         if (illegalConstructors.includes(hash)) {
             throw new Error('Cannot share plain objects or primitives.');
         }
-        this.sharePool[hash] = obj;
+        sharePool[hash] = obj;
     }
 
     static unshare(hash) {
-        this.sharePool[hash] = null;
+        sharePool[hash] = null;
     }
 }
 
-if (window) {
+if (typeof(window) !== 'undefined') {
     window.Chusha = Chusha;
 }
