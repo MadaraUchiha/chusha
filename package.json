@@ -1,6 +1,6 @@
 {
   "name": "chusha",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": "git@github.com:MadaraUchiha/chusha.git",
   "description": "A tiny dependency injection container for JavaScript",
   "author": "Madara Uchiha <me@madara.ninja>",
