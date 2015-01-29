@@ -29,5 +29,3 @@ coverage
 node_modules
 
 src/spikes
-
-dist/
