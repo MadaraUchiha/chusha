@@ -4,14 +4,24 @@ Tiny Dependency Injection Container for JavaScript applications.
 
 # How to use
 
+## Installing
+
+```
+npm install --save chusha
+```
+
 ## Including Chusha
 
-Depends on your current moduling system, Chusha offers multiple distribution files, all files have a minified version:
+### NodeJS
 
- - chusha.amd.js - for AMD modules (like RequireJS)
- - chusha.cjs.js - for CommonJS modules (like Browserify and NodeJS)
- - chusha.es6.js - for ES6 modules (like in a few years, or today with 6to5 or Google Traceur)
- - chusha.win.js - for no modules (a Chusha object will be appended to the window object. Please consider using a proper moduling system!)
+`var Chusha = require('chusha')` in your code to use it.
+
+### Browser
+
+The production ready files are in the `dist/` directory. There are two files, one minified and one not.
+
+Chusha supports UMD-style modules, so it works with AMD and CommonJS.
+If you have no moduling system (You should!!), you can still access the Chusha object on the global `window` object.
 
 ## Usage
 
