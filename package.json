@@ -1,6 +1,6 @@
 {
   "name": "chusha",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "repository": "git@github.com:MadaraUchiha/chusha.git",
   "description": "A tiny dependency injection container for JavaScript",
   "author": "Madara Uchiha <me@madara.ninja>",
@@ -15,16 +15,16 @@
   },
   "main": "dist/chusha.js",
   "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-6to5": "^3.0.0",
-    "gulp-jshint": "^1.9.0",
-    "gulp-mocha": "^2.0.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-uglify": "^1.1.0",
-    "jshint-stylish": "^1.0.0",
-    "del": "^1.1.1",
-    "6to5": "^3.0.15",
-    "mocha": "^2.1.0",
-    "should": "^4.6.2"
+    "babel": "^5.6.4",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-jshint": "^1.11.0",
+    "gulp-mocha": "^2.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "jshint-stylish": "^2.0.1",
+    "mocha": "^2.2.5",
+    "should": "^7.0.1"
   }
 }
