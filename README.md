@@ -1,4 +1,4 @@
-![Travis](https://travis-ci.org/MadaraUchiha/chusha.svg?branch=master)
+[![Travis](https://travis-ci.org/MadaraUchiha/chusha.svg?branch=master)](https://travis-ci.org/MadaraUchiha/chusha)
 # Chusha
 
 Tiny Dependency Injection Container for JavaScript applications.
